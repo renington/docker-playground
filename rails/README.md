@@ -24,6 +24,11 @@ docker-compose build
 docker-compose up -d
 ```
 8. Configure rails DB. Adding some informations of database server
+
+**If you are running Docker on Linux, change the ownership of the new files:**
+```shell
+sudo chown -R $USER:$USER .
+```
 9. Generate database on rails
 ```shell
 docker-compose run web rake db:create
