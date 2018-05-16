@@ -13,7 +13,7 @@ gem 'rails', '5.1.4'
 4. Create a Gemfile.lock inside app folder
 5. Create a new application rails
 ```shell
-docker-compose run web rails new . --force --database=postgres
+docker-compose run web rails new . -d postgresql
 ```
 6. Now, It needs build to run bundle install
 ```shell
