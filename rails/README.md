@@ -1,6 +1,6 @@
 ## Creating a new Rails application project with Docker
 
-### 9 STEPS
+### 10 STEPS
 1. Create a file `Dockerfile`
 2. Create a folder `app/`
 It's will be used for your application rails
@@ -29,7 +29,33 @@ docker-compose up -d
 ```shell
 sudo chown -R $USER:$USER .
 ```
-9. Generate database on rails
+
+9. Update this file config/database.yml
+```yml
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: dbpg
+  username: pguser
+  password: 
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: app_development
+
+test:
+  <<: *default
+  database: app_test
+
+# production:
+#   <<: *default
+#   database: app_production
+#   username: app
+#   password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+```
+
+10. Generate database on rails
 ```shell
-docker-compose run web rake db:create
+docker-compose run web rails db:create
 ```
