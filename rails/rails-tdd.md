@@ -2,6 +2,8 @@
 
 ```ruby
 # development / test
-gem 'rspec-rails', '~ 3.6'
-gem 'capybara'
+group :development, :test do
+  gem 'rspec-rails', '~> 3.6'
+  gem 'capybara'
+end
 ```
