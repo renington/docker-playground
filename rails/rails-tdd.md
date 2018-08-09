@@ -7,3 +7,8 @@ group :development, :test do
   gem 'capybara'
 end
 ```
+
+After that, you must run this command:
+```shell
+docker-compose run web rails g rspec:install
+```
